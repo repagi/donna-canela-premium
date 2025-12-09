@@ -3,20 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donna Canela Premium - Colares Luxuosos</title>
+    <title>Donna Canela Premium - Sapatos e Sandálias</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box;}
-        :root {
-            --primary-black: #000000; --primary-white: #ffffff;
-            --gray-dark: #1a1a1a; --gray-light: #f5f5f5; --gray-med: #333333;
-            --spacing-lg: 32px; --spacing-md: 24px;
-        }
+        :root {--primary-black: #000000; --primary-white: #ffffff; --gray-dark: #1a1a1a; --gray-light: #f5f5f5; --gray-med: #333333; --spacing-lg: 32px; --spacing-md: 24px;}
         body {font-family: 'Lato', sans-serif; background: var(--primary-white); color: var(--primary-black); line-height: 1.6;}
-        .header-premium {
-            background: var(--primary-black); border-bottom: 3px solid var(--primary-white); 
-            padding: var(--spacing-lg); position: sticky; top: 0; z-index: 100;
-        }
+        .header-premium {background: var(--primary-black); border-bottom: 3px solid var(--primary-white); padding: var(--spacing-lg); position: sticky; top: 0; z-index: 100;}
         .header-container {max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 48px;}
         .logo {font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary-white); letter-spacing: 2px; margin: 0;}
         .tagline {font-size: 12px; color: var(--primary-white); margin: 4px 0 0 0; opacity: 0.8;}
@@ -25,123 +18,106 @@
         .navbar a::after {content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--primary-white); transition: width 0.3s;}
         .navbar a:hover::after {width: 100%;}
         .search-input {background: var(--gray-dark); border: 1px solid var(--primary-white); color: var(--primary-white); padding: 16px; min-width: 200px;}
-        .search-input::placeholder {color: rgba(255,255,255,0.5);}
+        .search-input::placeholder {color: rgba(255, 255, 255, 0.5);}
         .cart-btn {background: var(--primary-white); color: var(--primary-black); border: none; padding: 16px 24px; cursor: pointer; font-weight: 600; transition: all 0.3s;}
-        .cart-btn:hover {background: var(--gray-light); box-shadow: 0 4px 12px rgba(0,0,0,0.2);}
+        .cart-btn:hover {background: var(--gray-light); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);}
         .hero-section {background: var(--primary-black); color: var(--primary-white); padding: 48px 32px; text-align: center;}
         .hero-content h2 {font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 24px;}
         .hero-btn {background: var(--primary-white); color: var(--primary-black); border: none; padding: 24px 48px; font-weight: 600; cursor: pointer; font-size: 16px; transition: all 0.3s;}
-        .hero-btn:hover {background: var(--gray-light); box-shadow: 0 8px 20px rgba(0,0,0,0.3);}
+        .hero-btn:hover {background: var(--gray-light); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);}
         .container-principal {max-width: 1400px; margin: 0 auto;}
         .products-section {padding: 48px;}
-        .section-header {text-align: center; margin-bottom: 48px;}
-        .section-header h2 {font-family: 'Playfair Display', serif; font-size: 36px; color: var(--primary-black); letter-spacing: 1px;}
-        .section-header p {color: var(--gray-dark); font-size: 16px;}
-        .products-grid {display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;}
-        .product-card {background: var(--primary-white); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: all 0.3s; border: 1px solid #e0e0e0;}
-        .product-card:hover {box-shadow: 0 8px 24px rgba(0,0,0,0.15); transform: translateY(-4px);}
-        .product-image-container {position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--gray-light);}
-        .product-image {width: 100%; height: 100%; transition: transform 0.3s; background: linear-gradient(135deg, #e0e0e0, #d0d0d0);}
-        .product-card:hover .product-image {transform: scale(1.05);}
-        .product-badge {position: absolute; top: 16px; right: 16px; background: var(--primary-black); color: var(--primary-white); padding: 8px 16px; font-size: 12px; font-weight: 600;}
-        .product-info {padding: 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
-        .product-name {font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
-        .product-price {font-family: 'Playfair Display', serif; font-size: 24px; font-weight: bold; color: var(--primary-black);}
-        .btn-add-cart {background: var(--primary-black); color: var(--primary-white); border: none; padding: 8px 16px; cursor: pointer; font-weight: 600; flex: 1; transition: all 0.3s;}
-        .btn-add-cart:hover {background: var(--gray-med); border: 1px solid var(--primary-black);}
-        .footer-premium {background: var(--primary-black); color: var(--primary-white); padding: 48px; border-top: 3px solid var(--primary-white); margin-top: 48px;}
-        .footer-container {max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px;}
-        .footer-section h3 {color: var(--primary-white); font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 1px;}
-        .footer-section a {color: var(--primary-white); text-decoration: none; transition: all 0.3s; opacity: 0.8;}
-        .footer-section a:hover {opacity: 1; text-decoration: underline;}
-        .footer-bottom {text-align: center; border-top: 1px solid var(--gray-dark); padding-top: 32px; color: rgba(255,255,255,0.7); font-size: 14px;}
-        @media (max-width: 1200px) {.products-grid {grid-template-columns: repeat(3, 1fr);}}
-        @media (max-width: 768px) {.header-container {flex-direction: column;} .products-grid {grid-template-columns: repeat(2, 1fr);} .footer-container {grid-template-columns: repeat(2, 1fr);}}
-        @media (max-width: 480px) {.products-grid {grid-template-columns: 1fr;} .footer-container {grid-template-columns: 1fr;}}
+        .products-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 32px;}
+        .product-card {border: 1px solid #ddd; padding: 16px; text-align: center; transition: all 0.3s;}
+        .product-card:hover {box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); transform: translateY(-4px);}
+        .product-image-container {min-height: 250px; display: flex; align-items: center; justify-content: center; background: var(--gray-light); margin-bottom: 16px;}
+        .product-image {max-height: 220px; max-width: 100%; object-fit: contain;}
+        .product-name {font-weight: 600; font-size: 16px; margin-bottom: 8px; color: var(--primary-black);}
+        .product-price {font-weight: 700; font-size: 18px; color: var(--primary-black); margin-bottom: 16px;}
+        .product-badge {display: inline-block; background: var(--primary-black); color: var(--primary-white); padding: 4px 8px; font-size: 11px; margin-top: 8px;}
+        .product-variations {font-size: 12px; color: var(--gray-med); margin: 8px 0;}
+        .btn-add-cart {background: var(--primary-black); color: var(--primary-white); border: none; padding: 12px 24px; cursor: pointer; font-weight: 600; width: 100%; transition: all 0.3s;}
+        .btn-add-cart:hover {background: var(--gray-med);}
+        h1 {font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 16px;}
+        p {margin-bottom: 16px;}
     </style>
 </head>
 <body>
     <header class="header-premium">
         <div class="header-container">
-            <div class="logo-section"><h1 class="logo">DONNA CANELA</h1><p class="tagline">Premium Jewelry</p></div>
+            <div>
+                <h1 class="logo">DONNA CANELA</h1>
+                <p class="tagline">Sapatos & Sandálias Premium</p>
+            </div>
             <nav class="navbar">
-                <ul class="menu-list">
-                    <li><a href="#colecao">Coleção</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
                 </ul>
             </nav>
-            <div class="header-actions">
-                <input type="search" class="search-input" placeholder="Buscar...">
-                <button class="cart-btn">Carrinho (0)</button>
-            </div>
+            <input type="text" class="search-input" placeholder="Buscar...">
+            <button class="cart-btn">🛍️ Carrinho</button>
         </div>
     </header>
-    <section class="hero-section">
+
+    <section class="hero-section" id="inicio">
         <div class="hero-content">
-            <h2>Coleção Premium 2025</h2>
-            <p>Colares luxuosos para mulheres sofisticadas</p>
-            <button class="hero-btn">Explore Coleção</button>
+            <h2>Coleção Premium de Sapatos e Sandálias</h2>
+            <p style="margin-bottom: 32px; font-size: 18px;">Descubra nossa seleção exclusiva de calçados</p>
+            <button class="hero-btn">Explorar Coleção</button>
         </div>
     </section>
-    <main class="container-principal">
-        <section class="products-section">
-            <div class="section-header">
-                <h2>Coleção Exclusiva</h2>
-                <p>Seleção de colares luxuosos e sofisticados</p>
-            </div>
+
+    <section class="products-section" id="produtos">
+        <div class="container-principal">
+            <h1>Nossos Produtos</h1>
             <div class="products-grid" id="productsGrid"></div>
-        </section>
-    </main>
-    <footer class="footer-premium">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Sobre Donna Canela</h3>
-                <p>Jóias premium com design luxuoso inspiradas nas melhores referências de moda.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Políticas</h3>
-                <ul><li><a href="#">Termos de Uso</a></li><li><a href="#">Política de Privacidade</a></li></ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>Email: contato@donnacanela.com</p>
-                <p><a href="https://wa.me/5511999999999" target="_blank">WhatsApp: (11) 99999-9999</a></p>
-                <p>Chat Wbuy: Ativado ✅</p>
-            </div>
-            <div class="footer-section">
-                <h3>Siga-nos</h3>
-                <div><a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a></div>
-            </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Donna Canela Premium. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    </section>
+
     <script>
         const products = [
-            {name: 'Colar De Prata Premium', price: 299, desc: 'Corrente delicada em prata', badge: 'Novo'},
-            {name: 'Colar Ouro 18K', price: 599, desc: 'Design elegante em ouro', badge: 'Destaque'},
-            {name: 'Colar Pérola Luxo', price: 449, desc: 'Pérola natural', badge: 'Popular'},
-            {name: 'Colar Diamante', price: 899, desc: 'Cristal austríaco', badge: 'Premium'},
-            {name: 'Colar Safira', price: 549, desc: 'Safira sintética', badge: 'Novo'},
-            {name: 'Colar Rose Gold', price: 379, desc: 'Ouro rosado 18K', badge: 'Popular'},
-            {name: 'Colar Esmeralda', price: 639, desc: 'Pedra natural', badge: null},
-            {name: 'Colar Rubi', price: 759, desc: 'Rubi sintético', badge: 'Premium'}
+            {name: 'Chinelo Jelly Brilho', price: 150.00, desc: 'Confortável e durável', badge: 'Novo', variations: '8 variações'},
+            {name: 'Sandália Rasteira Maribel Couro', price: 650.00, desc: 'Elegância e conforto', badge: 'Premium', variations: '16 variações'},
+            {name: 'Tênis Collab SCHUTZ+REEBOK', price: 790.00, desc: 'Colaboração exclusiva', badge: 'Destaque', variations: '24 variações'},
+            {name: 'Chinelo Jelly Glitter', price: 149.00, desc: 'Brilhante e divertido', badge: 'Popular', variations: '12 variações'},
+            {name: 'Sandália Anabela Siena Couro Marrom', price: 590.00, desc: 'Sofisticada e moderna', badge: 'Novo', variations: '8 variações'},
+            {name: 'Sandália Mule Betsy Couro', price: 590.00, desc: 'Elegante e versátil', badge: 'Destaque', variations: '16 variações'},
+            {name: 'Sandália Mule Salto Maisie Nobuck Bege', price: 590.00, desc: 'Conforto extremo', badge: 'Popular', variations: '8 variações'},
+            {name: 'Scarpin Slingback Verniz Couro Branco', price: 690.00, desc: 'Clássico refinado', badge: 'Premium', variations: '8 variações'},
+            {name: 'Tamanco Mule Pearline Glam Prata', price: 690.00, desc: 'Glamouroso e moderno', badge: 'Novo', variations: '8 variações'},
+            {name: 'Flat Iara Bege', price: 595.00, desc: 'Conforto o dia todo', badge: 'Popular', variations: '16 variações'},
+            {name: 'Flat Rochelle Rosa', price: 795.00, desc: 'Estilo casual chic', badge: 'Novo', variations: '8 variações'},
+            {name: 'Flat Rochelle Dourado Flor', price: 865.00, desc: 'Sofisticação pura', badge: 'Premium', variations: '8 variações'},
+            {name: 'Sandália Faro Bege', price: 745.00, desc: 'Minimalista e elegante', badge: 'Destaque', variations: '8 variações'},
+            {name: 'Tênis Lola', price: 259.90, desc: 'Esportivo e casual', badge: 'Popular', variations: '24 variações'},
+            {name: 'Tamanco Luana Caramelo', price: 835.00, desc: 'Conforto luxuoso', badge: 'Premium', variations: '8 variações'},
+            {name: 'Tênis Camuça', price: 790.00, desc: 'Clássico e durável', badge: 'Novo', variations: '24 variações'},
+            {name: 'Tênis Camuça Couro Rosa', price: 690.00, desc: 'Feminino e moderno', badge: 'Popular', variations: '8 variações'},
+            {name: 'Sandália Bloco Andy Couro Preto', price: 590.00, desc: 'Estruturado e elegante', badge: 'Destaque', variations: '8 variações'},
+            {name: 'Sandália Victoria', price: 865.00, desc: 'Sofisticação clássica', badge: 'Premium', variations: '16 variações'},
+            {name: 'Sandália Rasteira Azul Couro Semi Coberta', price: 299.90, desc: 'Confortável e elegante', badge: 'Popular', variations: '16 variações'},
+            {name: 'Sandália Carmelo Salto Médio Bloco Tiras Fivela', price: 199.90, desc: 'Prático e chic', badge: 'Novo', variations: '8 variações'},
+            {name: 'Scarpin Preto Camuça Salto Kitten Slingback', price: 439.90, desc: 'Salto baixo refinado', badge: 'Premium', variations: '8 variações'},
+            {name: 'Sandália Couro Salto Kitten Thong Tornozeleira', price: 479.90, desc: 'Ajustável e confortável', badge: 'Novo', variations: '16 variações'},
+            {name: 'Tênis A\'25', price: 269.90, desc: 'Futurista e moderno', badge: 'Destaque', variations: '48 variações'},
+            {name: 'Sandália Papete Sporty Couro', price: 590.00, desc: 'Casual e descontraído', badge: 'Popular', variations: '24 variações'}
         ];
+
         document.getElementById('productsGrid').innerHTML = products.map(p => `
             <article class="product-card">
                 <div class="product-image-container">
-                    <div class="product-image"></div>
+                    <div class="product-image">👟</div>
                     ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">${p.name}</h3>
-                    <p>${p.desc}</p>
+                    <p class="product-variations">${p.variations}</p>
                     <div style="border-top: 1px solid #e0e0e0; padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
-                        <span class="product-price">R$ ${p.price}</span>
-                        <button class="btn-add-cart">Adicionar</button>
+                        <span class="product-price">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
                     </div>
+                    <button class="btn-add-cart">Adicionar</button>
                 </div>
             </article>
         `).join('');
