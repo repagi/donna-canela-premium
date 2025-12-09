@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donna Canela Premium - Colares Luxuosos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        :root {
+            --wbuy-primary-black: #1a1a1a; --wbuy-accent-gold: #d4af37; --wbuy-white: #ffffff;
+            --wbuy-gray-dark: #2a2a2a; --wbuy-gray-light: #f0f0f0; --wbuy-spacing-lg: 32px; --wbuy-spacing-md: 24px;
+        }
+        body {font-family: 'Lato', sans-serif; background: var(--wbuy-white); color: var(--wbuy-primary-black); line-height: 1.6;}
+        .header-premium {
+            background: var(--wbuy-primary-black); border-bottom: 2px solid var(--wbuy-accent-gold); 
+            padding: var(--wbuy-spacing-lg); position: sticky; top: 0; z-index: 100;
+        }
+        .header-container {max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 48px;}
+        .logo {font-family: 'Playfair Display', serif; font-size: 28px; color: var(--wbuy-white); letter-spacing: 2px; margin: 0;}
+        .tagline {font-size: 12px; color: var(--wbuy-accent-gold); margin: 4px 0 0 0;}
+        .navbar ul {display: flex; list-style: none; gap: 24px; margin: 0; padding: 0;}
+        .navbar a {color: var(--wbuy-white); text-decoration: none; font-weight: 500; position: relative;}
+        .navbar a::after {content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--wbuy-accent-gold); transition: width 0.3s;}
+        .navbar a:hover::after {width: 100%;}
+        .search-input {background: var(--wbuy-gray-dark); border: 1px solid var(--wbuy-accent-gold); color: var(--wbuy-white); padding: 16px; min-width: 200px;}
+        .cart-btn {background: var(--wbuy-accent-gold); color: var(--wbuy-primary-black); border: none; padding: 16px 24px; cursor: pointer; font-weight: 600;}
+        .cart-btn:hover {background: var(--wbuy-white); box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);}
+        .hero-section {background: linear-gradient(135deg, #1a1a1a, #2a2a2a); color: var(--wbuy-white); padding: 48px 32px; text-align: center;}
+        .hero-content h2 {font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 24px;}
+        .hero-btn {background: var(--wbuy-accent-gold); color: var(--wbuy-primary-black); border: none; padding: 24px 48px; font-weight: 600; cursor: pointer; font-size: 16px;}
+        .container-principal {max-width: 1400px; margin: 0 auto;}
+        .products-section {padding: 48px;}
+        .section-header {text-align: center; margin-bottom: 48px;}
+        .section-header h2 {font-family: 'Playfair Display', serif; font-size: 36px; color: var(--wbuy-primary-black);}
+        .products-grid {display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;}
+        .product-card {background: var(--wbuy-white); overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; transition: all 0.3s;}
+        .product-card:hover {box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15); transform: translateY(-4px);}
+        .product-image-container {position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--wbuy-gray-light);}
+        .product-image {width: 100%; height: 100%; transition: transform 0.3s;}
+        .product-card:hover .product-image {transform: scale(1.05);}
+        .product-badge {position: absolute; top: 16px; right: 16px; background: var(--wbuy-accent-gold); color: var(--wbuy-primary-black); padding: 8px 16px; font-size: 12px; font-weight: 600;}
+        .product-info {padding: 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+        .product-name {font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
+        .product-price {font-family: 'Playfair Display', serif; font-size: 24px; font-weight: bold; color: var(--wbuy-accent-gold);}
+        .btn-add-cart {background: var(--wbuy-accent-gold); color: var(--wbuy-primary-black); border: none; padding: 8px 16px; cursor: pointer; font-weight: 600; flex: 1;}
+        .btn-add-cart:hover {background: var(--wbuy-primary-black); color: var(--wbuy-accent-gold); border: 1px solid var(--wbuy-accent-gold);}
+        .footer-premium {background: var(--wbuy-primary-black); color: var(--wbuy-white); padding: 48px; border-top: 2px solid var(--wbuy-accent-gold); margin-top: 48px;}
+        .footer-container {max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px;}
+        .footer-section h3 {color: var(--wbuy-accent-gold); font-family: 'Playfair Display', serif; font-size: 18px;}
+        .footer-section a {color: var(--wbuy-white); text-decoration: none; transition: all 0.3s;}
+        .footer-section a:hover {color: var(--wbuy-accent-gold);}
+        .footer-bottom {text-align: center; border-top: 1px solid var(--wbuy-gray-dark); padding-top: 32px; color: var(--wbuy-gray-light); font-size: 14px;}
+        @media (max-width: 1200px) {.products-grid {grid-template-columns: repeat(3, 1fr);}}
+        @media (max-width: 768px) {.header-container {flex-direction: column;} .products-grid {grid-template-columns: repeat(2, 1fr);} .footer-container {grid-template-columns: repeat(2, 1fr);}}
+        @media (max-width: 480px) {.products-grid {grid-template-columns: 1fr;} .footer-container {grid-template-columns: 1fr;}}
+    </style>
+</head>
+<body>
+    <header class="header-premium">
+        <div class="header-container">
+            <div class="logo-section"><h1 class="logo">DONNA CANELA</h1><p class="tagline">Premium Jewelry</p></div>
+            <nav class="navbar">
+                <ul class="menu-list">
+                    <li><a href="#colecao">Coleção</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <input type="search" class="search-input" placeholder="Buscar...">
+                <button class="cart-btn">Carrinho (0)</button>
+            </div>
+        </div>
+    </header>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Coleção Premium 2025</h2>
+            <p>Colares luxuosos para mulheres sofisticadas</p>
+            <button class="hero-btn">Explore Coleção</button>
+        </div>
+    </section>
+    <main class="container-principal">
+        <section class="products-section">
+            <div class="section-header">
+                <h2>Coleção Exclusiva</h2>
+                <p>Seleção de colares luxuosos e sofisticados</p>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+        </section>
+    </main>
+    <footer class="footer-premium">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sobre Donna Canela</h3>
+                <p>Jóias premium com design luxuoso inspiradas nas melhores referências de moda.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Políticas</h3>
+                <ul><li><a href="#">Termos de Uso</a></li><li><a href="#">Política de Privacidade</a></li></ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: contato@donnacanela.com</p>
+                <p><a href="https://wa.me/5511999999999" target="_blank">WhatsApp: (11) 99999-9999</a></p>
+                <p>Chat Wbuy: Ativado ✅</p>
+            </div>
+            <div class="footer-section">
+                <h3>Siga-nos</h3>
+                <div><a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Donna Canela Premium. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        const products = [
+            {name: 'Colar De Prata Premium', price: 299, desc: 'Corrente delicada em prata', badge: 'Novo'},
+            {name: 'Colar Ouro 18K', price: 599, desc: 'Design elegante em ouro', badge: 'Destaque'},
+            {name: 'Colar Pérola Luxo', price: 449, desc: 'Pérola natural', badge: 'Popular'},
+            {name: 'Colar Diamante', price: 899, desc: 'Cristal austríaco', badge: 'Premium'},
+            {name: 'Colar Safira', price: 549, desc: 'Safira sintética', badge: 'Novo'},
+            {name: 'Colar Rose Gold', price: 379, desc: 'Ouro rosado 18K', badge: 'Popular'},
+            {name: 'Colar Esmeralda', price: 639, desc: 'Pedra natural', badge: null},
+            {name: 'Colar Rubi', price: 759, desc: 'Rubi sintético', badge: 'Premium'}
+        ];
+        document.getElementById('productsGrid').innerHTML = products.map(p => `
+            <article class="product-card">
+                <div class="product-image-container">
+                    <div class="product-image" style="background: linear-gradient(135deg, #d4af37, #c99f2f);"></div>
+                    ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">${p.name}</h3>
+                    <p>${p.desc}</p>
+                    <div style="border-top: 1px solid #f0f0f0; padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+                        <span class="product-price">R$ ${p.price}</span>
+                        <button class="btn-add-cart">Adicionar</button>
+                    </div>
+                </div>
+            </article>
+        `).join('');
+    </script>
+</body>
+</html>
